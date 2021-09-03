@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/simple-datatables@latest.js" crossorigin="anonymous"></script>
+    <script src="./js/datatables-simple-demo.js"></script>
+    <script src="./js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav bg-success" id="scroll">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark ">
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-success" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <img src="./image/rose.jpg"
+                            style="border: 1px solid green;position: fixed;left: 40px; top: 1px; border-radius: 60px;"
+                            width="90" height="90">
+                        <div class="nav" style="position: fixed; top: 110px;">
+                            <a class="nav-link text-white" id="dashboard" href="home.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link collapsed text-white" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-injured"></i></div>
+                                Patient
+                            </a>
+
+                            <a class="nav-link collapsed text-white" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-bed"></i></div>
+                                Bed allotment
+                            </a>
+                            <a class="nav-link collapsed text-white bg-dark" href="report.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                Report
+                            </a>
+                            <a class="nav-link collapsed text-white" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tint"></i></div>
+                                Blood bank
+                            </a>
+                            <a class="nav-link collapsed text-white" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
+                                Profile
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="row" style="position: absolute; left: 500px; top: 10px;">
+                <h4 class="text-white">Royal Hospital</h4>
+            </div>
+
+            <div style="position: absolute; left: 900px;">
+                <nav class="navbar navbar-expand-lg ">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <div style="position: fixed;right: 390px; top: 8px;">
+                            <a href="patient.html" class="btn bg-light text-success" role="button"><i
+                                    class="fas fa-user-alt"></i> Nurse Panel</a>
+                        </div>
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="position: fixed;top: 7px; right: 160px;">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link bg-light dropdown-toggle  text-success" href="#" id="navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Choose your Language
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Tamil</a></li>
+                                    <li><a class="dropdown-item" href="#">English</a></li>
+                                    <li><a class="dropdown-item" href="#">Hindi</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <ul style="position: fixed; right: 20px; top: 8px;">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle bg-light text-success" href="#" id="navbarDropdown"
+                                    role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Account
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <li><a class="dropdown-item" href="#">Account1</a></li>
+                                    <li><a class="dropdown-item" href="#">Account2</a></li>
+                                    <li><a class="dropdown-item" href="#">Account3</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+
+    <div id="layoutSidenav_content" style="position: absolute;left: 218px;width: 86%; ">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                            <div class="row"
+                                style="background-color: gainsboro; height: 85px; width: 1122px; position: absolute; left: 12px; top: 1px;">
+                                <div class="col-md-8">
+                                    <h5 class="text-success mt-4">Nurse Dashboard</h5>
+                                </div>
+                                <div class="col" style="position: absolute; left: 190px;">
+                                    <div class="col mt-3" style="color: red; position: absolute; left: 270px;">
+                                        <b>Doctor</b>
+                                        <div class="text-center" style="color: green;font-size: x-large;">1</div>
+                                    </div>
+
+
+                                    <div class="col mt-3" style="color: red; position: absolute; left: 390px;">
+                                        <b>Patient</b>
+                                        <div class="text-center" style="color: green;font-size: x-large;">7</div>
+                                    </div>
+
+                                    <div class="col mt-3" style="color: red; position: absolute; left: 510px;">
+                                        <b>Nurse</b>
+                                        <div class="text-center" style="color: green;font-size: x-large;">1</div>
+                                    </div>
+
+                                    <div class="col mt-3" style="color: red; position: absolute; left: 620px;">
+                                        <b>Due invoices</b>
+                                        <div class="text-center" style="color: green;font-size: x-large;">10</div>
+                                    </div>
+
+                                    <div class="col mt-3" style="color: red; position: absolute; left: 770px;">
+                                        <b>Total Payment</b>
+                                        <div class="text-center" style="color: green;font-size: x-large;">20</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                                <div class="card-body mt-5">
+                                    <div class="row">
+                                    <ul class="nav nav-tabs mt-5">
+                                        <li class="nav-item">
+                                            <a class="nav-link active" aria-current="page" href="report.html"><i
+                                                    class="far fa-address-book"></i> Operation</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="birth.html"><i class="far fa-address-book"></i>
+                                                Birth</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="death.html"><i
+                                                    class="far fa-address-book"></i>
+                                                Death</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <div class="row mt-4">
+                                    
+                                    <table id="doctorsTable" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Id</th>
+                                                <th class="text-center">Operation</th>
+                                                <th class="text-center"> Description</th>
+                                                <th class="text-center">Doctor</th>
+                                                <th class="text-center">Patient Name</th>
+                                                <th class="text-center">Date</th>
+                                                <th class="text-center">Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="tbody">
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Eye Operation</td>
+                                                <td>Lens Removal</td>
+                                                <td>Dr.Sowmiya</td>
+                                                <td>Sinthiya</td>
+                                                <td>2021-09-03</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Stomach Operation</td>
+                                                <td>Lens Removal</td>
+                                                <td>Dr.Mala</td>
+                                                <td>Sinthiya</td>
+                                                <td>2021-09-03</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Eye Operation</td>
+                                                <td>Lens Removal</td>
+                                                <td>Dr.Sowmiya</td>
+                                                <td>Sinthiya</td>
+                                                <td>2021-09-03</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Eye Operation</td>
+                                                <td>Lens Removal</td>
+                                                <td>Dr.Sowmiya</td>
+                                                <td>Sinthiya</td>
+                                                <td>2021-09-03</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Eye Operation</td>
+                                                <td>Lens Removal</td>
+                                                <td>Dr.Sowmiya</td>
+                                                <td>Sinthiya</td>
+                                                <td>2021-09-03</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Eye Operation</td>
+                                                <td>Lens Removal</td>
+                                                <td>Dr.Sowmiya</td>
+                                                <td>Sinthiya</td>
+                                                <td>2021-09-03</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Eye Operation</td>
+                                                <td>Lens Removal</td>
+                                                <td>Dr.Sowmiya</td>
+                                                <td>Sinthiya</td>
+                                                <td>2021-09-03</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Eye Operation</td>
+                                                <td>Lens Removal</td>
+                                                <td>Dr.Sowmiya</td>
+                                                <td>Sinthiya</td>
+                                                <td>2021-09-03</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Eye Operation</td>
+                                                <td>Lens Removal</td>
+                                                <td>Dr.Sowmiya</td>
+                                                <td>Sinthiya</td>
+                                                <td>2021-09-03</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Eye Operation</td>
+                                                <td>Lens Removal</td>
+                                                <td>Dr.Sowmiya</td>
+                                                <td>Sinthiya</td>
+                                                <td>2021-09-03</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Eye Operation</td>
+                                                <td>Lens Removal</td>
+                                                <td>Dr.Sowmiya</td>
+                                                <td>Sinthiya</td>
+                                                <td>2021-09-03</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                           
+                                        </tbody>
+                                    </table>
+
+                                    
+                                <div class="modal" id="editModal" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="Edit">Edit</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row mt-3" id="row1">
+                                                    <label for="exampleFormControlInput1"
+                                                        class="form-label">Id</label>
+                                                    <input type="number" class="form-control" id="id"
+                                                        data-attr="nameErr" required>
+                                                    <div class="invalid-feedback" id="nameErr">
+                                                        This field is mandatory
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3 " id="row2">
+                                                    <label for="exampleFormControlInput1" class="form-label">Operation</label>
+                                                    <input type="text/number" class="form-control" id="operation" data-attr="specialistErr"
+                                                        required>
+                                                    <div class="invalid-feedback" id="specialistErr">
+                                                        This field is mandatory
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3" id="row3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Description</label>
+                                                    <input type="text/number" class="form-control" id="description"
+                                                        data-attr="qualificationErr" required>
+                                                    <div class="invalid-feedback" id="qualificationErr">
+                                                        This field is mandatory
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-3">
+                                                    <label for="exampleFormControlInput1"
+                                                        class="form-label">Doctor</label>
+                                                        <select id="doctors">
+                                                            <option>Select Doctor</option>
+                                                            <option>Dr.Juliet</option>
+                                                            <option>Dr.Sowmiya</option>
+                                                            <option>Dr.Mala</option>
+                                                            <option>Dr.Meena</option>
+                                                        </select>
+                                                </div>
+
+                                                <div class="row mt-3" id="row3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Patient Name</label>
+                                                    <input type="text"  onkeypress="return (event.charCode > 64 && 
+                                                    event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)" class="form-control" id="patient"
+                                                        data-attr="qualificationErr" required>
+                                                    <div class="invalid-feedback" id="qualificationErr">
+                                                        This field is mandatory
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mt-3" id="row3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Date</label>
+                                                    <input type="date" class="form-control" id="date"
+                                                        data-attr="qualificationErr" required>
+                                                    <div class="invalid-feedback" id="qualificationErr">
+                                                        This field is mandatory
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button onclick="save(this)" type="button" class="btn btn-secondary"
+                                                    data-save="save" id="save" data-bs-dismiss="modal">Save</button>
+                                            </div>
+
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" id="close"
+                                                    data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="toast position-fixed top-50 start-50 bg-warning text-primary w-90"
+                                    id="deleteConfirmation" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-body">
+                                        Are you sure you want to delete this row?
+                                        <div class="mt-2 pt-2">
+                                            <button type="button" id="cancel" class="btn btn-primary btn-sm">Cancel
+                                                <i class="far fa-window-close"></i></button>
+                                            <button type="button" id="delete" class="btn btn-danger btn-sm"
+                                                data-bs-dismiss="toast">Delete <i class="far fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                                </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    
+    <script src=" ./js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="./js/scripts.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', event => {
+            const datatablesSimple = document.getElementById('doctorsTable');
+            if (datatablesSimple) {
+                new simpleDatatables.DataTable(datatablesSimple);
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function() {
+            $('#scroll').css('overflow-x', 'hidden');
+        });
+        
+        var activeRow = null;
+        function editStatus(ed) {
+            $("#close").hide();
+            ed = $(ed);
+            let parent = ed.parent().parent().parent();
+            activeRow = parent;
+            let childs = activeRow.find("td");
+            $("#id").val($(childs[0]).html());
+            $("#operation").val($(childs[1]).html());
+            $("#description").val($(childs[2]).html());
+            $("#doctors").val($(childs[3]).html());
+            $("#patient").val($(childs[4]).html());
+            var a = $("#date").val($(childs[5]).html());
+      
+            $("#editModal").modal('show');
+        }
+
+        function save(sa) {
+            var id = $("#id").val();
+            var operation = $("#operation").val();
+            var description = $("#description").val();
+            var doctors = $("#doctors").val();
+            var patient = $("#patient").val();
+            var date = $("#date").val();
+          
+            let tdSingle = $(activeRow).find("td");
+            $(tdSingle).eq(0).html(id);
+            $(tdSingle).eq(1).html(operation);
+            $(tdSingle).eq(2).html(description);
+            $(tdSingle).eq(3).html(doctors);
+            $(tdSingle).eq(4).html(patient);
+            $(tdSingle).eq(5).html(date);
+        }
+
+        
+        var parent1 = "";
+
+        function deleteRow(pl) {
+            parent1 = $(pl).parent().parent();
+            $("#deleteConfirmation").addClass("show");
+        }
+
+        $("#delete").click(function () {
+            $(parent1).remove();
+            $("#deleteConfirmation").addClass("hide");
+        });
+
+        $("#cancel").click(function () {
+            $("#deleteConfirmation").addClass("hide");
+        });
+    </script>
+
+
+</body>
+
+</html>

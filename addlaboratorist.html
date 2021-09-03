@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="./js/simple-datatables@latest.js" crossorigin="anonymous"></script>
+    <script src="./js/datatables-simple-demo.js"></script>
+    <script src="./js/jquery-3.6.0.js"></script>
+
+    <script src="./js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed bg-success">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark ">
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-success" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <img src="./image/Desert.jpg"
+                            style="border: 1px solid green;position: fixed;left: 40px; top: 20px; border-radius: 60px;"
+                            width="90" height="90">
+                        <div class="nav" style="position: fixed; top: 110px;">
+                            <a class="nav-link text-white" id="dashboard" href="home.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="department.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                                Department
+                            </a>
+                            <a class="nav-link collapsed text-white" style="width: 220px;" href="doctor.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-md"></i></div>
+                                Doctor
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="patient.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-injured"></i></div>
+                                Patient
+                            </a>
+                            <a class="nav-link collapsed text-white" href="nurse.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-nurse"></i></div>
+                                Nurse
+                            </a>
+                            <a class="nav-link collapsed text-white" href="pharmacist.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-notes-medical"></i></div>
+                                Pharmacist
+                            </a>
+                            <a class="nav-link collapsed text-white bg-dark" href="laboratorist.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                                Laboratorist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="accoundant.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-money-bill"></i></div>
+                                Accoundant
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="monitor.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-hospital"></i></div>
+                                Monitor Hospital
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="settings.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
+                                Settings
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="profile.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
+                                Profile
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_content" style="position: absolute; top: 0px;">
+            <main>
+                <div class="card mx-auto" id="card" style="width: 71rem; height: 655px;">
+                    <div class="card-header" style="height: 100px;">
+                        <div class="container-fluid px-4">
+
+                            <h3 class="mt-4" >
+                                Add Laboratorist
+                            </h3>
+                            <ol class="breadcrumb mb-4">
+                                <li class="breadcrumb-item">
+                                    <a href="home.html">Dashboard</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    <a href="laboratorist.html">Laboratorist</a>
+                                </li>
+                                <li class="breadcrumb-item active">
+                                    Add Laboratorist
+                                </li>
+                            </ol>
+                        </div>
+                    </div>
+                    <form>
+
+                        <div class="card-body">
+                            <div class="row mt-4">
+                                <div class="col md-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Name</label>
+                                    <input type="text" name="fullName" onkeypress="return (event.charCode > 64 && 
+                                    event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
+                                        class="form-control" id="name" onkeyup="hideError(this)" data-attr="nameErr"
+                                        required>
+                                    <div class="invalid-feedback" id="nameErr">
+                                        This field is mandatory
+                                    </div>
+                                </div>
+                                <div class="col md-3 ">
+                                    <label for="exampleFormControlInput1" class="form-label">Experience</label>
+                                    <input type="text" name="fullName" 
+                                        class="form-control" id="specialist" onkeyup="hideError(this)"
+                                        data-attr="specialistErr" required>
+                                    <div class="invalid-feedback" id="specialistErr">
+                                        This field is mandatory
+                                    </div>
+                                </div>
+                                <div class="col md-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Qualification</label>
+                                    <input type="text" name="fullName" onkeypress="return (event.charCode > 64 && 
+                                    event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
+                                        class="form-control" id="qualification" onkeyup="hideError(this)"
+                                        data-attr="qualificationErr" required>
+                                    <div class="invalid-feedback" id="qualificationErr">
+                                        This field is mandatory
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col md-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="email" onkeydown="validEmail()"
+                                        onkeyup="hideError(this)" data-attr="emailErr" required>
+                                    <div class="invalid-feedback" id="emailErr">
+                                        This field is mandatory
+                                    </div>
+                                    <div class="invalid-feedback" id="validEmail">
+                                        please enter valid email
+                                    </div>
+                                </div>
+                                <div class="col md-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Contact Number</label>
+                                    <input type="number" class="form-control" id="number" onkeyup="hideError(this)"
+                                        data-attr="numberErr" required>
+                                    <div class="invalid-feedback" id="numberErr">
+                                        This field is mandatory
+                                    </div>
+                                </div>
+
+                                <div class="col md-3">
+                                    <label for="exampleFormControlInput1" class="form-label">Mother Name</label>
+                                    <input type="text" name="fullName" onkeypress="return (event.charCode > 64 && 
+                                    event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
+                                        class="form-control" id="mother" onkeyup="hideError(this)" data-attr="motherErr"
+                                        required>
+                                    <div class="invalid-feedback" id="motherErr">
+                                        This field is mandatory
+                                    </div>
+                                </div>
+                                <div class="row mt-4">
+                                    <div class="col-4 md-3">
+                                        <label for="exampleFormControlInput1" class="form-label">Father Name</label>
+                                        <input type="text" name="fullName" onkeypress="return (event.charCode > 64 && 
+                                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
+                                            class="form-control" id="father" onkeyup="hideError(this)"
+                                            data-attr="fatherErr" required>
+                                        <div class="invalid-feedback" id="numberErr">
+                                            This field is mandatory
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-5">
+                                <div class="col  d-md-flex justify-content-md-end">
+                                    <a href="#" class="btn btn-primary" id="add">Add
+                                        <i class="fas fa-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="toast bg-primary" id="toastAlert" role="alert" aria-live="assertive"
+                                aria-atomic="true">
+                                <div class="toast-body">
+                                    Added Successfully
+                                    <div class="mt-2 pt-2 border-top">
+                                        <a href="laboratorist.html" id="close" class="btn btn-success btn-sm"
+                                            role="button">close</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                </form>
+
+            </main>
+        </div>
+
+
+
+        <script src="./js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="./js/scripts.js"></script>
+
+        <script>
+            window.addEventListener('DOMContentLoaded', event => {
+                const datatablesSimple = document.getElementById('doctorsTable');
+                if (datatablesSimple) {
+                    new simpleDatatables.DataTable(datatablesSimple);
+                }
+            });
+
+            $(document).ready(function () {
+
+                $("#add").click(function () {
+
+                    var name = $("#name").val();
+                    var specialist = $("#specialist").val();
+                    var qualification = $("#qualification").val();
+                    var email = $("#email").val();
+                    var number = $("#number").val();
+                    var mother = $("#mother").val();
+                    var father = $("#father").val();
+
+                    if (!email) {
+                        $("#validEmail").hide();
+                    }
+
+
+                    var formControl = $(".form-control");
+                    var isError = false;
+                    for (let control of formControl) {
+                        control = $(control)
+                        if (!control[0].checkValidity()) {
+                            $("#card").addClass("was-validated");
+                            break;
+                        }
+                        else {
+                            $("#card").removeClass("was-validated");
+                            $("#toastAlert").addClass("show");
+                        }
+                    }
+
+
+                });
+                $("#close").click(function () {
+                    $("#toastAlert").addClass("hide");
+                });
+            });
+
+
+            function hideError(el) {
+                var getAttr = $(el).attr("data-attr");
+                var addHash = $("#" + getAttr);
+
+                if ($(el).val()) {
+                    addHash.hide();
+                }
+                else {
+                    $("#validEmail").hide();
+                    addHash.show();
+                }
+
+
+                $("#validEmail").hide();
+                if (getAttr == "emailErr" && $(el).val() && !$(el)[0].checkValidity()) {
+                    $("#validEmail").show();
+                }
+            }
+
+            function validEmail() {
+                if (email && !$("#email")[0].checkValidity()) {
+                    $("#validEmail").show();
+                }
+            }
+        </script>
+
+</body>
+
+</html>

@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <style>
+        .title {
+            font-size: 25px;
+        }
+    </style>
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/all.min.js" crossorigin="anonymous"></script>
+    <script src="./js/datatables-simple-demo.js"></script>
+    <script src="./js/simple-datatables@latest.js" crossorigin="anonymous"></script>
+
+
+<body class="sb-nav bg-success" id="scroll">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark ">
+
+
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-success" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <img src="./image/Desert.jpg"
+                            style="border: 1px solid green;position: fixed;left: 40px; top: 1px; border-radius: 60px;"
+                            width="90" height="90">
+                        <div class="nav" style="position: fixed; top: 110px;">
+                            <a class="nav-link text-white" id="dashboard" href="home.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                                Department
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-md"></i></div>
+                                Doctor
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-injured"></i></div>
+                                Patient
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-nurse"></i></div>
+                                Nurse
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-notes-medical"></i></div>
+                                Pharmacist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                                Laboratorist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-money-bill"></i></div>
+                                Accoundant
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-hospital"></i></div>
+                                Monitor Hospital
+                            </a>
+                            <a class="nav-link collapsed bg-dark text-white" style="width: 233px;" href="settings.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
+                                Settings
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
+                                Profile
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+    </nav>
+
+    <div id="layoutSidenav_content" style="position: absolute;left: 210px;width: 86%; top: 0;">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <ul class="nav nav-tabs">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" aria-current="page" href="settings.html"><i
+                                                class="far fa-address-book"></i> Manage noticeboard</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="systemsettings.html"><i class="fas fa-wrench"></i>
+                                            System Settings</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="backuprestore.html"><i class="fas fa-download"></i>
+                                            Backup restore</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            
+                    <div class="card-header">
+                        <div class="row" >
+                            <div class="col-md-20 text-end">
+                                <a href="addnotice.html" class="btn btn-primary">
+                                    Add noticeboard
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                                <a href="#" onclick=" window.location.reload();" class="btn btn-primary" id="refresh">
+                                    Refresh
+                                    <i class="fas fa-sync-alt"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                           
+                           
+                                <div class="card-body">
+                                    <table id="doctorsTable" class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="text-center">Id</th>
+                                                <th class="text-center">Notice Title</th>
+                                                <th class="text-center">Notice Description</th>
+                                                <th class="text-center">Notice Date</th>
+                                                <th class="text-center">Action</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="tbody">
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Chairmans Birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Manager birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Chairmans Birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Chairmans Birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Chairmans Birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Chairmans Birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Chairmans Birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Chairmans Birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Chairmans Birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Chairmans Birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Chairmans Birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="text-center">
+                                                <td>1</td>
+                                                <td>Chairmans Birthday</td>
+                                                <td>August 12 our Chirmans Birthday</td>
+                                                <td>2021-03-14</td>
+                                                <td style="width: 300px;">
+                                                    <span>
+                                                        <button onclick="editStatus(this)"
+                                                            class="btn btn-primary btn-sm save">
+                                                            Edit
+                                                            <i class="far fa-edit"></i>
+                                                        </button>
+                                                    </span>
+                                                    <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                        Delete
+                                                        <i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="modal" style="height: 900px;" id="editModal" tabindex="-1">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content" style="height: 400px;">
+                                                <div class="modal-header">
+                                                    <h1 class="title" id="editHead">Death report -  <span></span></h1>
+                                                </div>
+                                                <div class="modal-body mt-1 mb-4 ms-4 me-4">
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="exampleFormControlInput1" class="form-label">Id</label>
+                                                            <input type="number" class="form-control" id="name" data-attr="nameErr" required>
+                                                            <div class="invalid-feedback" id="nameErr">
+                                                                This field is mandatory
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="exampleFormControlInput1" class="form-label">Notice Title</label>
+                                                            <input type="text/number" class="form-control" id="specialist"
+                                                                data-attr="specialistErr" required>
+                                                            <div class="invalid-feedback" id="specialistErr">
+                                                                This field is mandatory
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                    
+                                                    <div class="row mt-3">
+                                                        <div class="col">
+                                                            <label for="exampleFormControlInput1" class="form-label">Notice Description</label>
+                                                            <input type="number/text" class="form-control" id="qualification"
+                                                                data-attr="qualificationErr" required>
+                                                            <div class="invalid-feedback" id="qualificationErr">
+                                                                This field is mandatory
+                                                            </div>
+                                                        </div>
+                                                        <div class="col">
+                                                            <label for="exampleFormControlInput1" class="form-label">Notice Date</label>
+                                                            <input type="date" class="form-control" id="bed" data-attr="emailErr"
+                                                                required>
+                                                            <div class="invalid-feedback" id="emailErr">
+                                                                This field is mandatory
+                                                            </div>
+                                                            <div class="invalid-feedback" id="validEmail">
+                                                                please enter valid email
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                    
+                                                   
+                    
+                    
+                                                </div>
+                                                
+                                                <div class="modal-footer" style="height: 100px;">
+                                                    <div class="row">
+                                                        <button type="button" style="width: 100px; position: absolute; left: 260px;top: 330px;" class="btn btn-secondary" id="closed"
+                                                        data-bs-dismiss="modal">Cancel</button>
+                                                        <button onclick="save(this)" type="button" class="btn btn-primary" style="width: 100px;position: absolute;top: 330px;left: 370px;"
+                                                            data-save="save" id="save" data-bs-dismiss="modal">Save</button>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                    
+
+
+
+
+
+                                    
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Notebook - <span></span></h5>
+                                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                        Do you want to delete this row?
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" id="delete">Delete</button>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+    <script src=" ./js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="./js/scripts.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" type="text/css">
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" type="text/javascript"></script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', event => {
+            const datatablesSimple = document.getElementById('doctorsTable');
+            if (datatablesSimple) {
+                new simpleDatatables.DataTable(datatablesSimple);
+               
+            }
+        });
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#scroll').css('overflow-x', 'hidden');
+
+        });
+        
+        var activeRow = null;
+        function editStatus(ed) {
+            $("#close").hide();
+            ed = $(ed);
+            let parent = ed.parent().parent().parent();
+            activeRow = parent;
+            let childs = activeRow.find("td");
+            var doctorName = $(childs[1]).html();
+            $("#editHead").find("span").html(doctorName);
+            $("#name").val($(childs[0]).html());
+            $("#specialist").val($(childs[1]).html());
+            $("#qualification").val($(childs[2]).html());
+            $("#bed").val($(childs[3]).html());
+           
+            $("#editModal").modal('show');
+        }
+
+        function save(sa) {
+            var name = $("#name").val();
+            var specialist = $("#specialist").val();
+            var qualification = $("#qualification").val();
+            var bed = $("#bed").val();
+        
+
+            let tdSingle = $(activeRow).find("td");
+            $(tdSingle).eq(0).html(name);
+            $(tdSingle).eq(1).html(specialist);
+            $(tdSingle).eq(2).html(qualification);
+            $(tdSingle).eq(3).html(bed);
+         
+            
+
+           
+        }
+
+      
+        var parent1 = "";
+
+        function deleteRow(pl) {
+            parent1 = $(pl).parent().parent();
+            $("#deleteConfirmation").addClass("show");
+            var td = $(parent1).find("td");
+            var doctor = $(td[1]).html();
+            $("#exampleModalLabel").find("span").html(doctor);
+            $("#exampleModal").modal('show');
+        }
+
+        $("#delete").click(function () {
+            parent1.remove();
+           
+        });
+
+      
+       
+
+    </script>
+</body>
+
+
+
+
+
+
+
+</html>

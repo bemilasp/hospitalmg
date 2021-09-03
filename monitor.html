@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/simple-datatables@latest.js" crossorigin="anonymous"></script>
+    <script src="./js/datatables-simple-demo.js"></script>
+    <script src="./js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav bg-success" id="scroll">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark ">
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-success" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <img src="./image/Desert.jpg"
+                            style="border: 1px solid green;position: fixed;left: 40px; top: 1px; border-radius: 60px;"
+                            width="90" height="90">
+                        <div class="nav" style="position: fixed; top: 110px;">
+                            <a class="nav-link text-white" id="dashboard" href="home.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link collapsed text-white"  href="department.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                                Department
+                            </a>
+                            <a class="nav-link collapsed text-white " style="width: 260px;" href="doctor.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-md"></i></div>
+                                Doctor
+                            </a>
+                            <a class="nav-link collapsed text-white" style="width: 240px;" href="patient.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-injured"></i></div>
+                                Patient
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="nurse.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-nurse"></i></div>
+                                Nurse
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="pharmacist.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-notes-medical"></i></div>
+                                Pharmacist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="laboratorist.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                                Laboratorist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="accoundant.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-money-bill"></i></div>
+                                Accoundant
+                            </a>
+                            <a class="nav-link collapsed text-white bg-dark" style="width: 240px;" href="monitor.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-hospital"></i></div>
+                                Monitor Hospital
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="settings.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
+                                Settings
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="profile.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
+                                Profile
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    <div id="layoutSidenav_content" style="position: absolute;left: 218px;top: 0px; width: 86%;">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="card mb-5">
+                    <div class="card-header" style="height: 48px;">
+                    <div class="row">
+                        <div class="col">
+                            <ul class="nav nav-tabs" style="position: absolute; top: 5px ;">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="home.html"><i class="fas fa-tv"></i>
+                                        Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="monitor.html">
+                                        <i class="fas fa-building"></i>
+                                        Monitor Hospital</a>
+                                </li>
+                            </ul>
+                           
+                        </div>
+                    </div>
+                    </div>
+               
+                    
+
+                
+                    <div class="card-header">
+                        <div class="row" >
+                            <div class="col-md-20 text-end">
+                                <a href="addmonitor.html" class="btn btn-primary">
+                                    Add monitor
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                                <a href="#" onclick=" window.location.reload();" class="btn btn-primary" id="refresh">
+                                    Refresh
+                                    <i class="fas fa-sync-alt"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                        <div class="card-body">
+                        <table id="doctorsTable" class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Number of Cameras</th>
+                                    <th class="text-center">Location</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center" style="width: 180px;">Action</th>
+                                    
+                                </tr>
+                            </thead>
+
+                            <tbody id="tbody">
+                                <tr class="text-center">
+
+                                    <td id="1">6</td>
+                                    <td>Emergency Care</td>
+                                    <td>Active</td>
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button onclick="editDoctors(this)" class="btn btn-primary btn-sm save">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                       
+                                    </td>
+                                </tr>
+                                <tr  class="text-center">
+
+                                    <td id="2">Nil</td>
+                                    <td>Maternity</td>
+                                    <td>Nil</td>
+                                    
+
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button onclick="editDoctors(this)" class="btn btn-primary btn-sm save"
+                                                data-edit="edit2">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                      
+                                    </td>
+
+                                </tr>
+                                <tr  class="text-center">
+                                    <td id="3" class="td1">Nil</td>
+                                    <td id="specialist3">Surgery</td>
+                                    <td>Nil</td>
+                                   
+                                    
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button onclick="editDoctors(this)"
+                                                class="btn btn-primary btn-sm edit save">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                       
+                                    </td>
+
+                                </tr>
+                                <tr  class="text-center">
+                                    <td id="4" class="td1">2</td>
+                                    <td id="specialist4">Pharmacy</td>
+                                    <td>Active</td>
+                                   
+                                   
+                                   
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button onclick="editDoctors(this)" class="btn btn-primary btn-sm save">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                       
+                                    </td>
+
+                                </tr>
+
+                                <tr  class="text-center">
+                                    <td>3</td>
+                                    <td>Laboratory</td>
+                                    <td>Inactive</td>
+                                   
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button class="btn btn-primary btn-sm">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                      
+                                    </td>
+
+                                </tr>
+                                <tr  class="text-center">
+                                    <td>3</td>
+                                    <td>Nursing</td>
+                                    <td>Inactive</td>
+                                   
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button class="btn btn-primary btn-sm">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                     
+                                    </td>
+
+                                </tr>
+                                <tr  class="text-center">
+                                    <td>2</td>
+                                    <td>Specialist</td>
+                                    <td>Active</td>
+                                  
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button class="btn btn-primary btn-sm">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                       
+                                    </td>
+
+                                </tr>
+                               
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="modal" style="height: 900px;" id="editModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content" style="height: 400px;">
+                            <div class="modal-body mt-1 mb-4 ms-4 me-4">
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1" class="form-label">Number of Cameras</label>
+                                        <input type="number" class="form-control" id="camera" data-attr="nameErr" required>
+                                        <div class="invalid-feedback" id="nameErr">
+                                            This field is mandatory
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1" class="form-label">Location</label>
+                                        <input type="text" class="form-control" id="location" data-attr="nameErr" required>
+                                        <div class="invalid-feedback" id="specialistErr">
+                                            This field is mandatory
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1" class="form-label">Status</label>
+                                        <input type="text" class="form-control" id="status" data-attr="nameErr" required>
+                                        <div class="invalid-feedback" id="specialistErr">
+                                            This field is mandatory
+                                        </div>
+                                    </div>
+                                </div>
+                               
+
+
+                               
+                            </div>
+                            <div  class="modal-footer" style="height: 80px;">
+                                <div class="row">
+                                    <button type="button" style="width: 100px; position: absolute; left: 260px;top: 490px;" class="btn btn-secondary" id="closed"
+                                    data-bs-dismiss="modal">Cancel</button>
+                                    <button onclick="save(this)" type="button" class="btn btn-primary" style="width: 100px;top: 490px;left: 370px;"
+                                        data-save="save" id="save" data-bs-dismiss="modal">Save</button>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="toast position-fixed top-50 start-50 bg-danger text-primary w-90" id="deleteConfirmation"
+                    role="alert" aria-live="assertive" aria-atomic="true">
+                    <div class="toast-header bg-danger text-white">
+                        Do you want to delete this row?
+                    </div>
+
+                    <div class="toast-body">
+                        <div class="row mt-2 pt-2 border-top">
+                            <div class="col-4">
+                                <button type="button" id="cancel" class="btn btn-primary btn-sm">Cancel <i
+                                        class="far fa-window-close"></i></button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" id="delete" class="btn btn-primary btn-sm"
+                                    data-bs-dismiss="toast">Delete <i class="far fa-trash-alt"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </main>
+    </div>
+
+
+    </div>
+
+    <script src=" ./js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="./js/scripts.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', event => {
+            const datatablesSimple = document.getElementById('doctorsTable');
+            if (datatablesSimple) {
+                new simpleDatatables.DataTable(datatablesSimple);
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            
+
+        });
+
+
+        var activeRow = null;
+        function editDoctors(ed) {
+            
+            ed = $(ed);
+            let parent = ed.parent().parent().parent();
+            activeRow = parent;
+            let childs = activeRow.find("td");
+            $("#camera").val($(childs[0]).html());
+            $("#location").val($(childs[1]).html());
+            $("#status").val($(childs[2]).html());
+
+            $("#editModal").modal('show');
+        }
+
+        function save(sa) {
+            var camera = $("#camera").val();
+            var location = $("#location").val();
+            var status = $("#status").val();
+
+            let tdSingle = $(activeRow).find("td");
+            $(tdSingle).eq(0).html(camera);
+            $(tdSingle).eq(1).html(location);
+            $(tdSingle).eq(2).html(status);
+        }
+
+      
+        var parent1 = "";
+
+        function deleteRow(pl) {
+            parent1 = $(pl).parent().parent();
+            $("#deleteConfirmation").addClass("show");
+        }
+
+        $("#delete").click(function () {
+            parent1.remove();
+            $("#deleteConfirmation").addClass("hide");
+        });
+
+        $("#cancel").click(function () {
+            $("#deleteConfirmation").addClass("hide");
+        });
+
+        $("#toastClose").click(function () {
+            $("#deleteConfirmation").addClass("hide");
+        });
+
+
+    </script>
+</body>
+
+</html>

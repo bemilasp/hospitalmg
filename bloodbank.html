@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <style>
+        .title {
+            font-size: 25px;
+        }
+    </style>
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/simple-datatables@latest.js" crossorigin="anonymous"></script>
+    <script src="./js/datatables-simple-demo.js"></script>
+    <script src="./js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav bg-success" id="scroll">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark ">
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-success w-90" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+
+                        <div class="nav" style="position: fixed; top: 60px;">
+                            <a class="nav-link text-white" id="dashboard" href="home.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="department.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                                Department
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="doctor.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-md"></i></div>
+                                Doctor
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="patient.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-injured"></i></div>
+                                Patient
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="nurse.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-nurse"></i></div>
+                                Nurse
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="pharmacist.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-notes-medical"></i></div>
+                                Pharmacist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="laboratorist.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                                Laboratorist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="accoundant.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-money-bill"></i></div>
+                                Accoundant
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="monitor.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-hospital"></i></div>
+                                Monitor Hospital
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="settings.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
+                                Settings
+                            </a>
+
+
+                            <a class="nav-link collapsed text-white" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
+                                Profile
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+
+
+        </div>
+    </nav>
+
+
+    <div id="layoutSidenav_content" style="position: absolute;left: 212px;width: 86%; top: 0px; ">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4" style="height: 1200px;">
+
+                            <div class="card-header" style="height: 200px;">
+                                
+                                    <div class="row text-success mt-3"
+                                        style="font-size: larger; position: absolute;left: 470px; top: 20px;">
+                                        <b>Blood Donation Total</b>
+                                    </div>
+                                    <div class="row" style="position: absolute; top: 80px; left: 210px;">
+                                        <div class="col mx-4">
+                                            <table width="180" border="1" height="100" class="text-center">
+                                                <tr>
+                                                    <td class="bg-primary h-50 text-white">Male</td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="male"></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+
+                                        <div class="col mx-4">
+                                            <table width="180" border="1" height="100" class="text-center">
+                                                <tr>
+                                                    <td class="bg-primary h-50 text-white">Female</td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="female"></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <div class="col">
+                                            <table width="180" border="1" height="100" class="text-center">
+                                                <tr>
+                                                    <td class="bg-primary h-50 text-white">All</td>
+                                                </tr>
+                                                <tr>
+                                                    <td id="all"></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                
+                            </div>
+
+                            <div class="card-header">
+                                <div class="row">
+                                    <div class="col-md-20 text-end">
+                                        <a href="adddonor.html" class="btn btn-primary">
+                                            Add Donor
+                                            <i class="fas fa-plus"></i>
+                                        </a>
+                                        <a href="#" onclick=" window.location.reload();" class="btn btn-primary"
+                                            id="refresh">
+                                            Refresh
+                                            <i class="fas fa-sync-alt"></i>
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="mt-5">
+                                    <div class="row">
+                                        <ul class="nav nav-tabs mt-5" style="position: absolute; top: 165px;">
+                                            <li class="nav-item">
+                                                <a class="nav-link" aria-current="page" href="home.html"><i
+                                                        class="fas fa-user"></i> Dashboard</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link active" aria-current="page" href="bloodbank.html"><i class="fas fa-tint"></i>
+                                                         Blood Bank</a>
+                                            </li>
+                                        </ul>
+
+                                    </div>
+
+                                    <div class="row mt-5" style="position: absolute;top: 230px;">
+
+                                        <table id="doctorsTable" class="table" style="width: 1050px;">
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">Id</th>
+                                                    <th class="text-center">Donor Name</th>
+                                                    <th class="text-center">Email</th>
+                                                    <th class="text-center">Address</th>
+                                                    <th class="text-center">Contact</th>
+                                                    <th class="text-center">Gender</th>
+                                                    <th class="text-center head">Age</th>
+                                                    <th class="text-center head">Blood Group</th>
+                                                    <th class="text-center head">Last Donation</th>
+                                                    <th class="text-center">Action</th>
+                                                </tr>
+                                            </thead>
+
+                                            <tbody id="tbody">
+                                                <tr class="text-center">
+                                                    <td>1</td>
+                                                    <td>Kavya</td>
+                                                    <td>Kavya@gmail.com</td>
+                                                    <td>Kovai</td>
+                                                    <td>9555435678</td>
+                                                    <td class="female">Female</td>
+                                                    <td class="body">32</td>
+                                                    <td class="body">O +ve</td>
+                                                    <td class="body">2020-09-07</td>
+                                                    <td style="width: 200px;">
+                                                        <span>
+                                                            <button onclick="editStatus(this)"
+                                                                class="btn btn-primary btn-sm save">
+                                                                Edit
+                                                                <i class="far fa-edit"></i>
+                                                            </button>
+                                                        </span>
+                                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                            Delete
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                        <button onclick="view(this)" id="view"
+                                                            class="btn btn-primary btn-sm">
+                                                            View
+                                                            <i class="far fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="text-center">
+                                                    <td>2</td>
+                                                    <td>dinesh</td>
+                                                    <td>Kavya@gmail.com</td>
+                                                    <td>Kovai</td>
+                                                    <td>9555435678</td>
+                                                    <td class="male">Male</td>
+                                                    <td class="body">34</td>
+                                                    <td class="body">B +ve</td>
+                                                    <td class="body">2021-09-08</td>
+                                                    <td style="width: 200px;">
+                                                        <span>
+                                                            <button onclick="editStatus(this)"
+                                                                class="btn btn-primary btn-sm save">
+                                                                Edit
+                                                                <i class="far fa-edit"></i>
+                                                            </button>
+                                                        </span>
+                                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                            Delete
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                        <button onclick="view(this)" id="view"
+                                                            class="btn btn-primary btn-sm">
+                                                            View
+                                                            <i class="far fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="text-center">
+                                                    <td>3</td>
+                                                    <td>Devi</td>
+                                                    <td>Kavya@gmail.com</td>
+                                                    <td>Kovai</td>
+                                                    <td>9555435678</td>
+                                                    <td class="female">Female</td>
+                                                    <td class="body">56</td>
+                                                    <td class="body">A +ve</td>
+                                                    <td class="body">2021-09-06</td>
+                                                    <td style="width: 200px;">
+                                                        <span>
+                                                            <button onclick="editStatus(this)"
+                                                                class="btn btn-primary btn-sm save">
+                                                                Edit
+                                                                <i class="far fa-edit"></i>
+                                                            </button>
+                                                        </span>
+                                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                            Delete
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                        <button onclick="view(this)" id="view"
+                                                            class="btn btn-primary btn-sm">
+                                                            View
+                                                            <i class="far fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="text-center">
+                                                    <td>4</td>
+                                                    <td>surya</td>
+                                                    <td>Kavya@gmail.com</td>
+                                                    <td>Kovai</td>
+                                                    <td>9555435678</td>
+                                                    <td class="male">Male</td>
+                                                    <td class="body">21</td>
+                                                    <td class="body">O +ve</td>
+                                                    <td class="body">2021-09-06</td>
+                                                    <td style="width: 200px;">
+                                                        <span>
+                                                            <button onclick="editStatus(this)"
+                                                                class="btn btn-primary btn-sm save">
+                                                                Edit
+                                                                <i class="far fa-edit"></i>
+                                                            </button>
+                                                        </span>
+                                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                            Delete
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                        <button onclick="view(this)" id="view"
+                                                            class="btn btn-primary btn-sm">
+                                                            View
+                                                            <i class="far fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="text-center">
+                                                    <td>5</td>
+                                                    <td>surya</td>
+                                                    <td>Kavya@gmail.com</td>
+                                                    <td>Kovai</td>
+                                                    <td>9555435678</td>
+                                                    <td class="male">Male</td>
+                                                    <td class="body">Age</td>
+                                                    <td class="body">Blood Group</td>
+                                                    <td class="body">Last Donation</td>
+                                                    <td style="width: 200px;">
+                                                        <span>
+                                                            <button onclick="editStatus(this)"
+                                                                class="btn btn-primary btn-sm save">
+                                                                Edit
+                                                                <i class="far fa-edit"></i>
+                                                            </button>
+                                                        </span>
+                                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                            Delete
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                        <button onclick="view(this)" id="view"
+                                                            class="btn btn-primary btn-sm">
+                                                            View
+                                                            <i class="far fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+
+
+
+
+                                                <tr class="text-center">
+                                                    <td>6</td>
+                                                    <td>prakash</td>
+                                                    <td>Kavya@gmail.com</td>
+                                                    <td>Kovai</td>
+                                                    <td>9555435678</td>
+                                                    <td class="male">Male</td>
+                                                    <td class="body">Age</td>
+                                                    <td class="body">Blood Group</td>
+                                                    <td class="body">Last Donation</td>
+                                                    <td style="width: 200px;">
+                                                        <span>
+                                                            <button onclick="editStatus(this)"
+                                                                class="btn btn-primary btn-sm save">
+                                                                Edit
+                                                                <i class="far fa-edit"></i>
+                                                            </button>
+                                                        </span>
+                                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                            Delete
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                        <button onclick="view(this)" id="view"
+                                                            class="btn btn-primary btn-sm">
+                                                            View
+                                                            <i class="far fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="text-center">
+                                                    <td>7</td>
+                                                    <td>preethi</td>
+                                                    <td>Kavya@gmail.com</td>
+                                                    <td>Kovai</td>
+                                                    <td>9555435678</td>
+                                                    <td class="female">Female</td>
+                                                    <td class="body">Age</td>
+                                                    <td class="body">Blood Group</td>
+                                                    <td class="body">Last Donation</td>
+                                                    <td style="width: 200px;">
+                                                        <span>
+                                                            <button onclick="editStatus(this)"
+                                                                class="btn btn-primary btn-sm save">
+                                                                Edit
+                                                                <i class="far fa-edit"></i>
+                                                            </button>
+                                                        </span>
+                                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                            Delete
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                        <button onclick="view(this)" id="view"
+                                                            class="btn btn-primary btn-sm">
+                                                            View
+                                                            <i class="far fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="text-center">
+                                                    <td>8</td>
+                                                    <td>hasini</td>
+                                                    <td>Kavya@gmail.com</td>
+                                                    <td>Kovai</td>
+                                                    <td>9555435678</td>
+                                                    <td class="female">Female</td>
+                                                    <td class="body">Age</td>
+                                                    <td class="body">Blood Group</td>
+                                                    <td class="body">Last Donation</td>
+                                                    <td style="width: 200px;">
+                                                        <span>
+                                                            <button onclick="editStatus(this)"
+                                                                class="btn btn-primary btn-sm save">
+                                                                Edit
+                                                                <i class="far fa-edit"></i>
+                                                            </button>
+                                                        </span>
+                                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                            Delete
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                        <button onclick="view(this)" id="view"
+                                                            class="btn btn-primary btn-sm">
+                                                            View
+                                                            <i class="far fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="text-center">
+                                                    <td>9</td>
+                                                    <td>subi</td>
+                                                    <td>Kavya@gmail.com</td>
+                                                    <td>Kovai</td>
+                                                    <td>9555435678</td>
+                                                    <td class="female">Female</td>
+                                                    <td class="body">Age</td>
+                                                    <td class="body">Blood Group</td>
+                                                    <td class="body">Last Donation</td>
+                                                    <td style="width: 200px;">
+                                                        <span>
+                                                            <button onclick="editStatus(this)"
+                                                                class="btn btn-primary btn-sm save">
+                                                                Edit
+                                                                <i class="far fa-edit"></i>
+                                                            </button>
+                                                        </span>
+                                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                            Delete
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                        <button onclick="view(this)" id="view"
+                                                            class="btn btn-primary btn-sm">
+                                                            View
+                                                            <i class="far fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+
+                                                <tr class="text-center">
+                                                    <td>10</td>
+                                                    <td>deepa</td>
+                                                    <td>Kavya@gmail.com</td>
+                                                    <td>Kovai</td>
+                                                    <td>9555435678</td>
+                                                    <td class="female">Female</td>
+                                                    <td class="body">Age</td>
+                                                    <td class="body">Blood Group</td>
+                                                    <td class="body">Last Donation</td>
+                                                    <td style="width: 200px;">
+                                                        <span>
+                                                            <button onclick="editStatus(this)"
+                                                                class="btn btn-primary btn-sm save">
+                                                                Edit
+                                                                <i class="far fa-edit"></i>
+                                                            </button>
+                                                        </span>
+                                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                            Delete
+                                                            <i class="fas fa-trash-alt"></i>
+                                                        </button>
+                                                        <button onclick="view(this)" id="view"
+                                                            class="btn btn-primary btn-sm">
+                                                            View
+                                                            <i class="far fa-eye"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+
+
+
+                                        <div class="modal" style="height: 900px;" id="editModal" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content" style="height: 650px;">
+                                                    <div class="modal-header">
+                                                        <h1 class="title" id="editHead">Blooddonor - <span></span></h1>
+                                                    </div>
+                                                    <div class="modal-body mt-1 mb-4 ms-4 me-4">
+
+                                                        <div class="row mt-3">
+                                                            <div class="col">
+                                                                <label for="exampleFormControlInput1"
+                                                                    class="form-label">Id
+                                                                </label>
+                                                                <input type="number" class="form-control" id="id"
+                                                                    data-attr="fatherErr" required>
+                                                                <div class="invalid-feedback" id="father">
+                                                                    This field is mandatory
+                                                                </div>
+                                                                <div class="invalid-feedback" id="validEmail">
+                                                                    please enter valid email
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="exampleFormControlInput1"
+                                                                    class="form-label">Donor Name</label>
+                                                                <input type="text" class="form-control" id="name"
+                                                                    data-attr="nameErr" required>
+                                                                <div class="invalid-feedback" id="nameErr">
+                                                                    This field is mandatory
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-3">
+
+                                                            <div class="col">
+                                                                <label for="exampleFormControlInput1"
+                                                                    class="form-label">Email</label>
+                                                                <input type="email" class="form-control" id="specialist"
+                                                                    data-attr="specialistErr" required>
+                                                                <div class="invalid-feedback" id="specialistErr">
+                                                                    This field is mandatory
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="exampleFormControlInput1"
+                                                                    class="form-label">Address</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="qualification" data-attr="qualificationErr"
+                                                                    required>
+                                                                <div class="invalid-feedback" id="qualificationErr">
+                                                                    This field is mandatory
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row mt-3">
+
+                                                            <div class="col">
+                                                                <label for="exampleFormControlInput1"
+                                                                    class="form-label">Contact</label>
+                                                                <input type="number" id="number" class="form-control"
+                                                                    id="email" data-attr="emailErr" required>
+                                                                <div class="invalid-feedback" id="emailErr">
+                                                                    This field is mandatory
+                                                                </div>
+                                                                <div class="invalid-feedback" id="validEmail">
+                                                                    please enter valid email
+                                                                </div>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="exampleFormControlInput1"
+                                                                    class="form-label">Gender
+                                                                </label>
+                                                                <input type="text" class="form-control" id="gender"
+                                                                    data-attr="numberErr" required>
+                                                                <div class="invalid-feedback" id="numberErr">
+                                                                    This field is mandatory
+                                                                </div>
+                                                            </div>
+
+
+                                                        </div>
+
+                                                        <div class="row mt-3">
+
+                                                            <div class="col">
+                                                                <label for="exampleFormControlInput1"
+                                                                    class="form-label">Age
+                                                                </label>
+                                                                <input type="number" class="form-control" id="mother"
+                                                                    data-attr="motherErr" required>
+                                                                <div class="invalid-feedback" id="mother">
+                                                                    This field is mandatory
+                                                                </div>
+                                                                <div class="invalid-feedback" id="validEmail">
+                                                                    please enter valid email
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col">
+                                                                <label for="exampleFormControlInput1"
+                                                                    class="form-label">Blood Group
+                                                                </label>
+                                                                <input type="text" class="form-control" id="blood"
+                                                                    data-attr="fatherErr" required>
+                                                                <div class="invalid-feedback" id="father">
+                                                                    This field is mandatory
+                                                                </div>
+                                                                <div class="invalid-feedback" id="validEmail">
+                                                                    please enter valid email
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+                                                        <div class="row mt-3">
+                                                            <label for="exampleFormControlInput1"
+                                                                class="form-label">Last Donation
+                                                            </label>
+                                                            <input type="date" style="width: 420px;position: absolute;left: 13px; top: 410px;" class="form-control" id="lastDonation"
+                                                                data-attr="fatherErr" required>
+                                                            <div class="invalid-feedback" id="father">
+                                                                This field is mandatory
+                                                            </div>
+                                                            <div class="invalid-feedback" id="validEmail">
+                                                                please enter valid email
+                                                            </div>
+                                                        </div>
+
+                                                       
+                                                    </div>
+                                                    <div class="modal-footer" style="height: 100px;">
+                                                        <div class="row">
+                                                            <button type="button" style="width: 100px; position: absolute; left: 260px;top: 570px;" class="btn btn-secondary" id="closed"
+                                                            data-bs-dismiss="modal">Cancel</button>
+                                                            <button onclick="save(this)" type="button" class="btn btn-primary" style="width: 100px;position: absolute;top: 570px;left: 370px;"
+                                                                data-save="save" id="save" data-bs-dismiss="modal">Save</button>
+                                                            </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="modal" style="height: 900px;" id="viewModal" tabindex="-1">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content" style="width: 600px;">
+                                                    <div class="modal-header text-center">
+                                                        <h1 class="title" id="viewTitle">Blooddonor - <span></span></h1>
+                                                    </div>
+                                                    
+                                                    <div class="modal-body  mb-2 ms-2 me-2">
+                                                        <div>
+                                                            <div class="row" style="margin: 10px;">
+                                                                <div class="col-6 ml-4">
+                                                                    <b>Id</b>
+                                                                    <p class="col-6" id="viewId"></p>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <b>Donor name</b>
+                                                                    <p id="viewDonor"></p>
+                                                                </div>
+                                                            </div>
+                        
+                        
+                        
+                                                            <div class="row mt-1" style="margin: 10px;">
+                                                                <div class="col-7">
+                                                                    <b>Email</b>
+                                                                    <p class="col-6" id="viewEmail"></p>
+                                                                </div>
+                                                                <div class="col-3" style="position: absolute;left: 290px;" >
+                                                                    <b>Address</b>
+                                                                    <p class="col-6" id="viewAddress"></p>
+                                                                </div>
+                                                            </div>
+                        
+                        
+                        
+                                                            <div class="row mt-1" style="margin: 10px;">
+                                                                <div class="col-6">
+                                                                    <b>Contact</b>
+                                                                    <p class="col-6" id="viewContact"></p>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <b>Gender</b>
+                                                                    <p class="col-6" id="viewGender"></p>
+                                                                </div>
+                        
+                                                            </div>
+                        
+                        
+                                                            <div class="row mt-1" style="margin: 10px;">
+                                                                <div class="col-6">
+                                                                    <b>Age</b>
+                                                                    <p class="col" id="viewAge"></p>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                    <b>Blood group</b>
+                                                                    <p class="col" id="viewBlood"></p>
+                                                                </div>
+                                                            </div>
+
+                                                            
+                                                            <div class="row mt-1" style="margin: 10px;">
+                                                                <div class="col-6">
+                                                                    <b>Last donation</b>
+                                                                    <p class="col" id="viewlastDonation"></p>
+                                                                </div>
+                                                               
+                                                            </div>
+                        
+                                                        </div>
+                                                    </div>
+                        
+                        
+
+
+                                                    <div class="modal-footer text-center">
+                                                        <div class="row">
+                                                            <button style="width: 100px; position: absolute; left: 370px;" type="button"
+                                                            class="btn btn-primary" id="closeView" data-bs-dismiss="modal">Close</button>
+                                                        <button style="width: 100px;" type="button" class="btn btn-primary" id="editView"
+                                                            data-bs-dismiss="modal">Edit</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                              <div class="modal-content">
+                                                <div class="modal-header">
+                                                  <h5 class="modal-title" id="exampleModalLabel">Blood donor - <span></span></h5>
+                                                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                Do you want to delete this row?
+                                                </div>
+                                                <div class="modal-footer">
+                                                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                                                  <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" id="delete">Delete</button>
+                                                </div>
+                                              </div>
+                                            </div>
+                                          </div>
+                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </main>
+    </div>
+
+    <script src=" ./js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="./js/scripts.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', event => {
+            const datatablesSimple = document.getElementById('doctorsTable');
+            if (datatablesSimple) {
+                new simpleDatatables.DataTable(datatablesSimple);
+            }
+        });
+    </script>
+    <script>
+
+        $(document).ready(function () {
+            $('#scroll').css('overflow-x', 'hidden');
+            $(".head").hide();
+            $(".body").hide();
+
+
+            var all = $('#doctorsTable tbody tr').length;
+            $("#all").html(all);
+
+            var male = $("#doctorsTable tbody tr td.male").length;
+            $("#male").html(male);
+
+            var female = $("#doctorsTable tbody tr td.female").length;
+            $("#female").html(female);
+        });
+
+
+        var activeRow = null;
+        function editStatus(ed) {
+
+            ed = $(ed);
+            let parent = ed.parent().parent().parent();
+            activeRow = parent;
+            let childs = activeRow.find("td");
+            var doctorName = $(childs[1]).html();
+            $("#editHead").find("span").html(doctorName);
+
+            $("#id").val($(childs[0]).html())
+            $("#name").val($(childs[1]).html());
+            $("#specialist").val($(childs[2]).html());
+            $("#qualification").val($(childs[3]).html());
+            $("#number").val($(childs[4]).html());
+            $("#gender").val($(childs[5]).html());
+            $("#mother").val($(childs[6]).html());
+            $("#blood").val($(childs[7]).html());
+            $("#lastDonation").val($(childs[8]).html());
+            $("#editModal").modal('show');
+        }
+
+        function save(sa) {
+            var id = $("#id").val();
+            var name = $("#name").val();
+            var specialist = $("#specialist").val();
+            var qualification = $("#qualification").val();
+            var number = $("#number").val();
+            var gender = $("#gender").val();
+            var mother = $("#mother").val();
+            var blood = $("#blood").val();
+            var lastDonation = $("#lastDonation").val();
+
+            let tdSingle = $(activeRow).find("td");
+
+            $(tdSingle).eq(0).html(id);
+            $(tdSingle).eq(1).html(name);
+            $(tdSingle).eq(2).html(specialist);
+            $(tdSingle).eq(3).html(qualification);
+            $(tdSingle).eq(4).html(number);
+            $(tdSingle).eq(5).html(gender);
+            $(tdSingle).eq(6).html(mother);
+            $(tdSingle).eq(7).html(blood);
+            $(tdSingle).eq(8).html(lastDonation);
+        }
+
+        function view(vi) {
+            activeRow = vi
+            let child = $(vi).parent().parent();
+            let td = $(child).find("td");
+            var id = $(td[0]).html();
+            var name = $(td[1]).html();
+            var specialist = $(td[2]).html();
+            var qualification = $(td[3]).html();
+            var number = $(td[4]).html();
+            var email = $(td[5]).html();
+            var mother = $(td[6]).html();
+            var father = $(td[7]).html();
+            var lastDonation = $(td[8]).html();
+            $("#viewTitle").find("span").html(name);
+
+            $("#viewId").html(id);
+            $("#viewDonor").html(name);
+            $("#viewEmail").html(specialist);
+            $("#viewAddress").html(qualification);
+            $("#viewContact").html(number);
+            $("#viewGender").html(email);
+            $("#viewAge").html(mother);
+            $("#viewBlood").html(father);
+            $("#viewlastDonation").html(lastDonation);
+            $("#viewModal").modal('show');
+        }
+        
+        $("#editView").click(function() {
+            let table = $(activeRow).parent().parent();
+         
+            
+            table.find(".save").trigger("click");
+           $("#editModal").modal('show');
+        }); 
+        var parent1 = "";
+
+        function deleteRow(pl) {
+            parent1 = $(pl).parent().parent();
+            $("#deleteConfirmation").addClass("show");
+            var td = $(parent1).find("td");
+            var doctor = $(td[0]).html();
+            $("#exampleModalLabel").find("span").html(doctor);
+            $("#exampleModal").modal('show');
+        }
+
+        $("#delete").click(function () {
+            parent1.remove();
+           
+        });
+
+       
+
+    </script>
+
+
+
+
+</body>
+
+</html>

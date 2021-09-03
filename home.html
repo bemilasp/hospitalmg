@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/simple-datatables@latest.js" crossorigin="anonymous"></script>
+    <script src="./js/datatables-simple-demo.js"></script>
+    <script src="./js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav bg-success"  id="scroll">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark ">
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-success" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <img src="./image/Desert.jpg"
+                            style="border: 1px solid green;position: fixed;left: 40px; top: 1px; border-radius: 60px;"
+                            width="90" height="90">
+                        <div class="nav" style="position: fixed; top: 110px;">
+                            <a class="nav-link text-white bg-dark" style="width: 240px;" id="dashboard" href="home.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="department.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                                Department
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="doctor.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-md"></i></div>
+                                Doctor
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="patient.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-injured"></i></div>
+                                Patient
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="nurse.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-nurse"></i></div>
+                                Nurse
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="pharmacist.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-notes-medical"></i></div>
+                                Pharmacist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="laboratorist.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                                Laboratorist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="accoundant.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-money-bill"></i></div>
+                                Accoundant
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="monitor.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-hospital"></i></div>
+                                Monitor Hospital
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="settings.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
+                                Settings
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="profile.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
+                                Profile
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+        
+                <div class="row" style="position: absolute; left: 400px; top: 10px;">
+                    <h4 class="text-white">Royal Hospital</h4>
+                </div>
+
+                <div style="position: absolute; left: 900px; top: 5px;">
+                    <nav class="navbar navbar-expand-lg ">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <div style="position: absolute;right: 13px; top: 5px;">
+                                <a href="patient.html" class="btn bg-light text-success " style="width: 170px;" role="button"><i
+                                        class="fas fa-user-alt"></i> Admin Panel</a>
+                            </div>
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0" style="position: absolute;top: 4px; left: 1px;">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link bg-light dropdown-toggle  text-success" href="#"
+                                        id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Choose your Language
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Tamil</a></li>
+                                        <li><a class="dropdown-item" href="#">English</a></li>
+                                        <li><a class="dropdown-item" href="#">Hindi</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <ul style="position: absolute; left: 180px; top: 4px;">
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle bg-light text-success" href="#"
+                                        id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                                        aria-expanded="false">
+                                        Account
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <li><a class="dropdown-item" href="#">Account1</a></li>
+                                        <li><a class="dropdown-item" href="#">Account2</a></li>
+                                        <li><a class="dropdown-item" href="#">Account3</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+
+                        </div>
+
+                    </nav>
+                </div>
+           
+    </nav>
+
+    <div id="layoutSidenav_content" style="position: absolute;left: 218px;width: 86%;">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4">
+                            <div class="row"
+                                style="background-color: gainsboro; height: 85px; width: 1122px; position: absolute; right: 0px;">
+                                <div class="col-md-8">
+                                    <h5 class="text-success mt-4">Admin Dashboard</h5>
+                                </div>
+                                <div class="col" style="position: absolute; left: 190px;">
+                                    <div class="col mt-3" style="color: red; position: absolute; left: 270px;">
+                                        <b>Doctor</b>
+                                        <div class="text-center" style="color: green;font-size: x-large;">1</div>
+                                    </div>
+
+
+                                    <div class="col mt-3" style="color: red; position: absolute; left: 390px;">
+                                        <b>Patient</b>
+                                        <div class="text-center" style="color: green;font-size: x-large;">7</div>
+                                    </div>
+
+                                    <div class="col mt-3" style="color: red; position: absolute; left: 510px;">
+                                        <b>Nurse</b>
+                                        <div class="text-center" style="color: green;font-size: x-large;">1</div>
+                                    </div>
+
+                                    <div class="col mt-3" style="color: red; position: absolute; left: 620px;">
+                                        <b>Due invoices</b>
+                                        <div class="text-center" style="color: green;font-size: x-large;">10</div>
+                                    </div>
+
+                                    <div class="col mt-3" style="color: red; position: absolute; left: 770px;">
+                                        <b>Total Payment</b>
+                                        <div class="text-center" style="color: green;font-size: x-large;">20</div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+
+                            <div class="card-body mt-5">
+                                <div class="container">
+                                    <div class="row mt-5">
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood;height: 100px; width: 5px;">
+                                            <div><a href="doctor.html"><i class="fas fa-user-md"
+                                                        style="width: 30px; height: 40px; color:darkgoldenrod;"></i></a>
+                                            </div><b>Doctor</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="patient.html"><i class="fas fa-user-injured"
+                                                        style="width: 30px; height: 40px; color:darkgoldenrod;"></i></a>
+                                            </div><b>Patient</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="nurse.html"><i class="fas fa-user-nurse"
+                                                        style="width: 30px; height: 40px; color:darkgoldenrod;"></i></a>
+                                            </div><b>Nurse</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color: gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="pharmacist.html"><i class="fas fa-notes-medical"
+                                                        style="width: 30px; height: 40px; color: darkgoldenrod;"></i></a>
+                                            </div><b>Pharmacist</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="laboratorist.html"><i class="fas fa-flask"
+                                                        style="width: 30px; height: 40px; color: darkgoldenrod;"></i></a>
+                                            </div><b>Laboratorist</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="accoundant.html"><i class="fas fa-money-bill"
+                                                        style="width: 30px; height: 40px; color: darkgoldenrod;"></i></a>
+                                            </div><b>Accoundant</b>
+                                        </div>
+
+                                    </div>
+                                    <div class="row mt-4">
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood;height: 100px; width: 5px;">
+                                            <div><a href="payment.html"><i class="fas fa-money-bill"
+                                                        style="width: 30px; height: 40px; color:darkgoldenrod;"></i></a>
+                                            </div><b>Payment</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="bloodbank.html"><i class="fas fa-tint"
+                                                        style="width: 30px; height: 40px; color:darkgoldenrod;"></i></a>
+                                            </div><b>Blood bank</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="medicine.html"><i class="fas fa-prescription-bottle-alt"
+                                                        style="width: 30px; height: 40px; color:darkgoldenrod;position: absolute; top: 253px;left: 440px;"></i></a>
+                                            </div><b style="position: absolute; top: 300px;left: 420px;">Medicine</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color: gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="appointment.html"><i class="fas fa-calendar-check"
+                                                        style="width: 30px; height: 40px; color: darkgoldenrod;"></i></a>
+                                            </div><b>Appointment</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="reportoperation.html"><i class="fas fa-book-open"
+                                                        style="width: 30px; height: 40px; color: darkgoldenrod;"></i></a>
+                                            </div><b style="position: absolute; top: 290px; left: 740px;">Report Operation</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="birth.html"><i class="fas fa-address-book"
+                                                        style="width: 30px; height: 40px; color: darkgoldenrod;"></i></a>
+                                            </div><b>Birth Report</b>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-4 mb-4">
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="death.html"><i class="fas fa-address-book"
+                                                        style="width: 30px; height: 40px; color:darkgoldenrod;"></i></a>
+                                            </div><b>Death Report</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="bed.html"><i class="fas fa-bed"
+                                                        style="width: 30px; height: 40px; color:darkgoldenrod;"></i></a>
+                                            </div><b>Bed allotment</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color: gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="notebook.html"><i class="fas fa-book"
+                                                        style="width: 30px; height: 40px; color: darkgoldenrod;"></i></a>
+                                            </div><b>Notebook</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="settings.html"><i class="fas fa-wrench"
+                                                        style="width: 30px; height: 40px; color: darkgoldenrod;"></i></a>
+                                            </div><b>Settings</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="language.html"><i class="fas fa-language"
+                                                        style="width: 30px; height: 40px; color: darkgoldenrod;"></i></a>
+                                            </div><b>Language</b>
+                                        </div>
+                                        <div class="col me-4 text-danger text-center pt-2"
+                                            style="background-color:gainsboro;border: 2px solid burlywood; height: 100px; width: 5px;">
+                                            <div><a href="backup.html"><i class="fas fa-desktop"
+                                                        style="width: 30px; height: 40px; color: darkgoldenrod;"></i></a>
+                                            </div><b>Backup</b>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <table id="doctorsTable" class="table">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">Registration Number</th>
+                                            <th class="text-center">Patient Name</th>
+                                            <th class="text-center">Age</th>
+                                            <th class="text-center">Gender</th>
+                                            <th class="text-center" id="status">Status</th>
+                                            <th class="text-center">Action</th>
+                                        </tr>
+                                    </thead>
+
+                                    <tbody id="tbody">
+                                        <tr class="text-center">
+                                            <td>1001</td>
+                                            <td>Divya</td>
+
+                                            <td>33</td>
+                                            <td>Female</td>
+                                            <td id="status1">Stay in Third floor room N0.33 with good health
+                                                conditon
+                                            </td>
+                                            <td style="width: 300px;">
+                                                <span>
+                                                    <button onclick="editStatus(this)"
+                                                        class="btn btn-primary btn-sm save">
+                                                        Edit
+                                                        <i class="far fa-edit"></i>
+                                                    </button>
+                                                </span>
+                                                <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                    Delete
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                                <button onclick="view(this)" id="view" class="btn btn-primary btn-sm">
+                                                    View Status
+                                                    <i class="far fa-eye"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                        <tr class="text-center">
+
+                                            <td id="2">1002</td>
+                                            <td>Kavya</td>
+                                            <td>26</td>
+                                            <td>Female</td>
+                                            <td id="status2">Admitted in PICU</td>
+
+                                            <td>
+                                                <span>
+                                                    <button onclick="editStatus(this)"
+                                                        class="btn btn-primary btn-sm save" data-edit="edit2">
+                                                        Edit
+                                                        <i class="far fa-edit"></i>
+                                                    </button>
+                                                </span>
+                                                <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                    Delete
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                                <button onclick="view(this)" class="btn btn-primary btn-sm">
+                                                    View Status
+                                                    <i class="far fa-eye"></i>
+                                                </button>
+
+                                            </td>
+
+                                        </tr>
+                                        <tr class="text-center">
+                                            <td id="3" class="td1">1003</td>
+                                            <td id="specialist3">San Francisco</td>
+                                            <td id="qualification3">55</td>
+                                            <td id="contact3">Male</td>
+                                            <td id="status3">Admitted in Corona Ward with critical condition
+                                            </td>
+
+                                            <td>
+                                                <span>
+                                                    <button onclick="editStatus(this)"
+                                                        class="btn btn-primary btn-sm edit save">
+                                                        Edit
+                                                        <i class="far fa-edit"></i>
+                                                    </button>
+                                                </span>
+                                                <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                    Delete
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                                <button onclick="view(this)" class="btn btn-primary btn-sm">
+                                                    View Status
+                                                    <i class="far fa-eye"></i>
+                                                </button>
+                                            </td>
+
+                                        </tr>
+                                        <tr class="text-center">
+                                            <td id="4" class="td1">1004</td>
+                                            <td id="specialist4">Ganesh</td>
+                                            <td id="qualification4">13</td>
+
+                                            <td id="contact4">Male</td>
+                                            <td id="status4">Admiited in NICU</td>
+
+                                            <td>
+                                                <span>
+                                                    <button onclick="editStatus(this)"
+                                                        class="btn btn-primary btn-sm save">
+                                                        Edit
+                                                        <i class="far fa-edit"></i>
+                                                    </button>
+                                                </span>
+                                                <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                                    Delete
+                                                    <i class="fas fa-trash-alt"></i>
+                                                </button>
+                                                <button onclick="view(this)" class="btn btn-primary btn-sm">
+                                                    View Status
+                                                    <i class="far fa-eye"></i>
+                                                </button>
+                                            </td>
+
+                                        </tr>
+
+                                    </tbody>
+                                    <div class="row"
+                                        style="width: 15%; align-content: center; position:absolute; left: 600px;">
+                                        <a href="#" class="btn btn-primary">
+                                            Add Status <i class="fas fa-plus"></i>
+                                        </a>
+                                    </div>
+                                </table>
+
+
+
+                                <div class="modal" id="editModal" tabindex="-1">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="Edit">Edit</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row mt-3" id="row1">
+                                                    <label for="exampleFormControlInput1"
+                                                        class="form-label">Registration Number</label>
+                                                    <input type="number" class="form-control" id="reg"
+                                                        data-attr="nameErr" required>
+                                                    <div class="invalid-feedback" id="nameErr">
+                                                        This field is mandatory
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3 " id="row2">
+                                                    <label for="exampleFormControlInput1" class="form-label">Patient
+                                                        Name</label>
+                                                    <input type="text"
+                                                        onkeypress="return (event.charCode > 64 && 
+                                                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
+                                                        class="form-control" id="patient" data-attr="specialistErr"
+                                                        required>
+                                                    <div class="invalid-feedback" id="specialistErr">
+                                                        This field is mandatory
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-3" id="row3">
+                                                    <label for="exampleFormControlInput1" class="form-label">Age</label>
+                                                    <input type="number" class="form-control" id="age"
+                                                        data-attr="qualificationErr" required>
+                                                    <div class="invalid-feedback" id="qualificationErr">
+                                                        This field is mandatory
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="mt-3" id="gender">
+                                                    <p>Gender</p>
+                                                      <input type="radio" id="Female" name="gender" value="female">
+                                                    <label for="female">Female</label><br>
+                                                      <input type="radio" id="Male" name="gender" value="male">
+                                                      <label for="male">male</label><br>
+                                                      <input type="radio" id="Others" name="gender" value="others">
+                                                      <label for="others">others</label><br>
+                                                    <div class="invalid-feedback" id="emailErr">
+                                                        This field is mandatory
+                                                    </div>
+                                                </div>
+
+
+
+
+                                                <div class="row mt-3">
+                                                    <label for="exampleFormControlInput1"
+                                                        class="form-label">Status</label>
+                                                    <input type="text"
+                                                        onkeypress="return (event.charCode > 64 && 
+                                                        event.charCode < 91) || (event.charCode > 96 && event.charCode < 123)"
+                                                        class="form-control" id="patientStatus" data-attr="numberErr"
+                                                        required>
+                                                    <div class="invalid-feedback" id="numberErr">
+                                                        This field is mandatory
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" style="position: absolute; left: 20px; width: 80px;" class="btn btn-secondary" id="closed"
+                                                data-bs-dismiss="modal">Cancel</button>
+                                                <button onclick="save(this)" style="width: 80px;"   type="button" class="btn btn-secondary"
+                                                    data-save="save" id="save" data-bs-dismiss="modal">Save</button>
+                                                 
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="toast position-fixed top-50 start-50 bg-warning text-primary w-90"
+                                    id="deleteConfirmation" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-body">
+                                        Are you sure you want to delete this row?
+                                        <div class="mt-2 pt-2">
+                                            <button type="button" id="cancel" class="btn btn-primary btn-sm">Cancel
+                                                <i class="far fa-window-close"></i></button>
+                                            <button type="button" id="delete" class="btn btn-danger btn-sm"
+                                                data-bs-dismiss="toast">Delete <i class="far fa-trash-alt"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="toast align-items-center position-absolute top-50 start-50 bg-info"
+                                    id="showToast" role="alert" aria-live="assertive" aria-atomic="true">
+                                    <div class="toast-body" id="showStatus"></div>
+                                    <div class="ms-2">
+                                        <button type="button" id="close" class="btn btn-danger me-2 m-auto"
+                                            data-dismiss="toast" aria-label="Close">Close <i
+                                                class="far fa-window-close"></i></button>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        </main>
+    </div>
+
+
+    </div>
+
+    <script src=" ./js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="./js/scripts.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', event => {
+            const datatablesSimple = document.getElementById('doctorsTable');
+            if (datatablesSimple) {
+                new simpleDatatables.DataTable(datatablesSimple);
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#status").hide();
+            $("#status1").hide();
+            $("#status2").hide();
+            $("#status3").hide();
+            $("#status4").hide();
+            $('#scroll').css('overflow-x', 'hidden');
+
+        });
+
+        var activeRow = null;
+        function editStatus(ed) {
+           
+            ed = $(ed);
+            let parent = ed.parent().parent().parent();
+            activeRow = parent;
+            let childs = activeRow.find("td");
+            $("#reg").val($(childs[0]).html());
+            $("#patient").val($(childs[1]).html());
+            $("#age").val($(childs[2]).html());
+
+            var gender = $(childs[3]).html().toLowerCase();
+            $("input[name='gender'][value='" + gender + "']").prop("checked", true);
+            $("#patientStatus").val($(childs[4]).html());
+            $("#editModal").modal('show');
+            $("#closed").modal('hide');
+        }
+
+        function save(sa) {
+            var reg = $("#reg").val();
+            var patient = $("#patient").val();
+            var age = $("#age").val();
+
+            var gender = $('input[name="gender"]:checked').val();
+            $('input[value="' + gender + '"');
+            var status = $("#patientStatus").val();
+            let tdSingle = $(activeRow).find("td");
+            $(tdSingle).eq(0).html(reg);
+            $(tdSingle).eq(1).html(patient);
+            $(tdSingle).eq(2).html(age);
+            $(tdSingle).eq(3).html(gender);
+            $(tdSingle).eq(4).html(status);
+        }
+
+        function view(vi) {
+            let child = $(vi).parent().parent();
+            let td = $(child).find("td");
+            var a = $("#showStatus").html($(td[4]).html());
+
+            $("#showToast").addClass("show");
+        }
+
+        $("#close").click(function () {
+
+            $("#showToast").addClass("hide");
+
+        });
+
+
+
+
+
+        var parent1 = "";
+
+        function deleteRow(pl) {
+            parent1 = $(pl).parent().parent();
+            $("#deleteConfirmation").addClass("show");
+        }
+
+        $("#delete").click(function () {
+            $(parent1).remove();
+            $("#deleteConfirmation").addClass("hide");
+        });
+
+        $("#cancel").click(function () {
+            $("#deleteConfirmation").addClass("hide");
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>

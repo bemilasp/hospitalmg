@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./css/styles.css" rel="stylesheet" />
+  <script src="./js/jquery-3.6.0.js"></script>
+  <script src="./js/all.min.js" crossorigin="anonymous"></script>
+  <script src=" ./js/bootstrap.bundle.min.js" crossorigin="anonymous">
+  </script>
+  <script src="./js/scripts.js"></script>
+</head>
+
+<body>
+    <form  action="https://usman-recipes.herokuapp.com/api/recipes/612f01c8fb6adf001629fe63" onsubmit="submitValues()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Title</label>
+          <input type="text" value="Marina Beach"  class="form-control" id="title" name="title" >
+         
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Body</label>
+          <input type="text" value="Marina beach is the second largest beach in TamilNadu"  class="form-control" id="body" name="body">
+        </div>
+
+      
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+  
+  
+
+  <script>
+    function submitValues() {
+        event.preventDefault();
+      var dataValues =  $("form").serializeArray();
+      var data = {};
+      $.each(dataValues, (index,obj) => {
+        data[obj.name] = obj.value;
+      });
+      
+      $.ajax({
+                url: "https://usman-recipes.herokuapp.com/api/recipes/612f01c8fb6adf001629fe63",
+                type: "PUT",
+                data: dataValues,
+                dataType: 'json',
+                async: false,
+                success: function (result) {
+                    console.log(result)
+                },
+                error: function (result) {
+                  console.log(result)
+                }
+
+            });
+        
+    }
+  </script>
+</body>
+
+
+</html>

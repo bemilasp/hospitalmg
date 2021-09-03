@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="./css/styles.css" rel="stylesheet" />
+  <script src="./js/jquery-3.6.0.js"></script>
+  <script src="./js/all.min.js" crossorigin="anonymous"></script>
+  <script src=" ./js/bootstrap.bundle.min.js" crossorigin="anonymous">
+  </script>
+  <script src="./js/scripts.js"></script>
+</head>
+
+<body>
+    <form method="POST" action="https://usman-recipes.herokuapp.com/api/recipes" onsubmit="submitValues()">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input type="email" value="bemila@gmail.com"  class="form-control" id="email" name="email" >
+         
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Name</label>
+          <input type="text" value="bemila"  class="form-control" id="name" name="name">
+        </div>
+       
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+  
+  
+
+  <script>
+    function submitValues() {
+        event.preventDefault();
+      var dataValues =  $("form").serializeArray();
+      var data = {};
+      $.each(dataValues, (index,obj) => {
+        data[obj.name] = obj.value;
+      });
+      
+      $.ajax({
+                url: "https://usman-recipes.herokuapp.com/api/recipes",
+                type: "post",
+                data: dataValues,
+                dataType: 'json',
+                async: false,
+                success: function (result) {
+                    console.log(result)
+                },
+                error: function (result) {
+                  console.log(result)
+                }
+
+            });
+        
+    }
+  </script>
+</body>
+
+
+</html>

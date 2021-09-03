@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/simple-datatables@latest.js" crossorigin="anonymous"></script>
+    <script src="./js/datatables-simple-demo.js"></script>
+    <script src="./js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav bg-success" id="scroll">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark ">
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-success" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <img src="./image/Desert.jpg" id="oldImage"
+                            style="border: 1px solid green;position: fixed;left: 40px; top: 1px; border-radius: 60px;"
+                            width="90" height="90">
+                        <div class="nav" style="position: fixed; top: 110px;">
+                            <a class="nav-link text-white" id="dashboard" href="home.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                                Department
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-md"></i></div>
+                                Doctor
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-injured"></i></div>
+                                Patient
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-nurse"></i></div>
+                                Nurse
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-notes-medical"></i></div>
+                                Pharmacist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                                Laboratorist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-money-bill"></i></div>
+                                Accoundant
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="...">
+                                <div class="sb-nav-link-icon"><i class="fas fa-hospital"></i></div>
+                                Monitor Hospital
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="settings.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
+                                Settings
+                            </a>
+                            <a class="nav-link collapsed text-white active bg-dark" href="profile.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
+                                Profile
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+
+    </nav>
+
+    <div id="layoutSidenav_content" style="position: absolute;left: 218px;width: 86%;">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-4" style="height: 800px;">
+                            <div class="card-header">
+                                <div class="row text-success"
+                                    style="background-color: gainsboro; height: 60px; width: 1030px; position: absolute; right: 50px; top: 30px;">
+                                    <div class="col h5" style="position: absolute; left: 400px; top: 20px;">
+                                        <i class="far fa-edit w-35 h-20 "></i> Edit Profile
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <form method="post" style="position: absolute; top: 120px; left: 40px;">
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="row mb-3">
+                                                <label for="name" class="form-label"><b>Name</b></label>
+                                                <input type="text" value="Dr. Jeyam Juliet" class="form-control"
+                                                    style="width: 500px;"
+                                                    onkeypress="return (event.charCode > 64 && event.charCode < 91) || (event.charCode > 96 && event.charCode < 123) || (event.charCode==32)"
+                                                    id="name">
+                                            </div>
+                                            <div class="row mb-3">
+                                                <label for="email" class="form-label"><b>Email</b></label>
+                                                <input type="email" style="width: 500px;" value="jeyamjuliet@gmail.com"
+                                                    class="form-control" id="email">
+                                            </div>
+                                        </div>
+                                        <div class="col" style="position: absolute; left: 750px;">
+                                            <img src="./image/Desert.jpg" id="newImage"
+                                                style="border: 1px solid white;border-radius: 60px;" width="90"
+                                                height="90">
+                                        </div>
+                                    </div>
+
+                                    <div class="row" style="position: absolute; left: 600px; top: 122px;">
+                                        <div class="col">
+                                            <button type="button" style="width: 150px;" id="change"
+                                                class="btn btn-primary">Change Image</button>
+                                            <input type="file" id="input" style="display: none;" />
+                                        </div>
+
+                                        <div class="col">
+                                            <button style="position: absolute;top: 5px; left: 230px; width: 120px;"
+                                                type="button" id="upload" class="btn btn-primary"><i
+                                                    class="fas fa-upload"></i> Upload
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+        </main>
+    </div>
+
+
+
+    </div>
+
+    <script src=" ./js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="./js/scripts.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', event => {
+            const datatablesSimple = document.getElementById('doctorsTable');
+            if (datatablesSimple) {
+                new simpleDatatables.DataTable(datatablesSimple);
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#scroll').css('overflow-x', 'hidden');
+        });
+
+        $("#change").click(function() {
+            $("#input").trigger('click');
+        });
+        var newImage = "";
+        $("#input").change (function() {
+          newImage =  $("#input")[0].files[0];  //send this to backend team
+        });
+
+        $("#upload").click(function() {
+         
+     //  URL.createObjectURL(event.target.files[0]);
+        $("#newImage").attr("src", URL.createObjectURL(newImage));
+        $("#oldImage").attr("src", URL.createObjectURL(newImage));
+
+        });
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

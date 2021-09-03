@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Dashboard - SB Admin</title>
+    <style>
+        .title {
+            font-size: 25px;
+        }
+    </style>
+    <link href="./css/styles.css" rel="stylesheet" />
+    <script src="./js/jquery-3.6.0.js"></script>
+    <script src="./js/simple-datatables@latest.js" crossorigin="anonymous"></script>
+    <script src="./js/datatables-simple-demo.js"></script>
+    <script src="./js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav bg-success" id="scroll">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark ">
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-success" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <img src="./image/Desert.jpg"
+                            style="border: 1px solid green;position: fixed;left: 40px; top: 1px; border-radius: 60px;"
+                            width="90" height="90">
+                        <div class="nav" style="position: fixed; top: 110px;">
+                            <a class="nav-link text-white" id="dashboard" href="home.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-tv"></i></div>
+                                Dashboard
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="department.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-building"></i></div>
+                                Department
+                            </a>
+                            <a class="nav-link collapsed text-white " style="width: 260px;" href="doctor.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-md"></i></div>
+                                Doctor
+                            </a>
+                            <a class="nav-link collapsed text-white" style="width: 240px;" href="patient.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-injured"></i></div>
+                                Patient
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="nurse.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-nurse"></i></div>
+                                Nurse
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="pharmacist.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-notes-medical"></i></div>
+                                Pharmacist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="laboratorist.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-flask"></i></div>
+                                Laboratorist
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="accoundant.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-money-bill"></i></div>
+                                Accoundant
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="monitor.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-hospital"></i></div>
+                                Monitor Hospital
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="settings.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-wrench"></i></div>
+                                Settings
+                            </a>
+                            <a class="nav-link collapsed text-white active" href="profile.html">
+                                <div class="sb-nav-link-icon"><i class="fas fa-user-circle"></i></div>
+                                Profile
+                            </a>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </nav>
+
+    <div id="layoutSidenav_content" style="position: absolute;left: 218px;top: 0px; width: 86%;">
+        <main>
+            <div class="container-fluid px-4">
+                <div class="card mb-5">
+                    <div class="card-header" style="height: 48px;">
+                    <div class="row">
+                        <div class="col">
+                            <ul class="nav nav-tabs" style="position: absolute; top: 5px ;">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="home.html"><i class="fas fa-tv"></i>
+                                        Dashboard</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="reportoperation.html">
+                                        <i class="fas fa-book-open"></i>
+                                        Report Operation</a>
+                                </li>
+                            </ul>
+                           
+                        </div>
+                    </div>
+                    </div>
+               
+                    
+
+                
+                    <div class="card-header">
+                        <div class="row" >
+                            <div class="col-md-20 text-end">
+                                <a href="addreport.html" class="btn btn-primary">
+                                    Add report operation
+                                    <i class="fas fa-plus"></i>
+                                </a>
+                                <a href="#" onclick=" window.location.reload();" class="btn btn-primary" id="refresh">
+                                    Refresh
+                                    <i class="fas fa-sync-alt"></i>
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                        <div class="card-body">
+                        <table id="doctorsTable" class="table">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">Operation Date</th>
+                                    <th class="text-center">Patient Name</th>
+                                    <th class="text-center">Gender</th>
+                                    <th class="text-center">Age</th>
+                                    <th class="text-center">Doctor Name</th>
+                                    <th class="text-center">Operation Name</th>
+                                    <th class="text-center" style="width: 180px;">Action</th>
+                                    
+                                </tr>
+                            </thead>
+
+                            <tbody id="tbody">
+                                <tr class="text-center">
+
+                                    <td id="1">2021-09-06</td>
+                                    <td>Divya</td>
+                                    <td>Female</td>
+
+                                    <td>50</td>
+                                    <td>Dr.Juliet</td>
+                                    <td>Cycosocis</td>
+                                   
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button onclick="editDoctors(this)" class="btn btn-primary btn-sm save">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                       
+                                    </td>
+                                </tr>
+                                <tr  class="text-center">
+
+                                    <td id="2">2021-09-06</td>
+                                    <td>Suja</td>
+                                    <td>2021-04-03</td>
+
+                                    <td>988888888</td>
+                                    <td>bemila@gmail.com</td>
+                                    <td>Cycosocis</td>
+                                    
+
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button onclick="editDoctors(this)" class="btn btn-primary btn-sm save"
+                                                data-edit="edit2">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                      
+                                    </td>
+
+                                </tr>
+                                <tr  class="text-center">
+                                    <td id="3" class="td1">2012-05-09</td>
+                                    <td id="specialist3">Paru</td>
+                                    <td id="qualification3">San Francisco</td>
+
+                                    <td id="contact3">9555555555552</td>
+                                    <td id="mail3">bemila@gmail.com</td>
+                                    <td>Cycosocis</td>
+                                   
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button onclick="editDoctors(this)"
+                                                class="btn btn-primary btn-sm edit save">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                       
+                                    </td>
+
+                                </tr>
+                                <tr  class="text-center">
+                                    <td id="4" class="td1">2012-05-09</td>
+                                    <td id="specialist4">Suha</td>
+                                    <td id="qualification4">Edinburgh</td>
+
+                                    <td id="contact4">9455688666</td>
+                                    <td id="mail4">bemila@gmail.com</td>
+                                    <td>Cycosocis</td>
+                                   
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button onclick="editDoctors(this)" class="btn btn-primary btn-sm save">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button onclick="deleteRow(this)" class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                       
+                                    </td>
+
+                                </tr>
+
+                                <tr  class="text-center">
+                                    <td>Airi Satou</td>
+                                    <td>Accountant</td>
+                                    <td>Tokyo</td>
+
+                                    <td>2008/11/28</td>
+                                    <td>bemila@gmail.com</td>
+                                    <td>Cycosocis</td>
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button class="btn btn-primary btn-sm">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                      
+                                    </td>
+
+                                </tr>
+                                <tr  class="text-center">
+                                    <td>Brielle Williamson</td>
+                                    <td>Integration Specialist</td>
+                                    <td>New York</td>
+
+                                    <td>2012/12/02</td>
+                                    <td>bemila@gmail.com</td>
+                                    <td>Cycosocis</td>
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button class="btn btn-primary btn-sm">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                     
+                                    </td>
+
+                                </tr>
+                                <tr  class="text-center">
+                                    <td>Herrod Chandler</td>
+                                    <td>Sales Assistant</td>
+                                    <td>San Francisco</td>
+
+                                    <td>2012/08/06</td>
+                                    <td>bemila@gmail.com</td>
+                                    <td>Cycosocis</td>
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button class="btn btn-primary btn-sm">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                       
+                                    </td>
+
+                                </tr>
+                                <tr  class="text-center">
+                                    <td>Rhona Davidson</td>
+                                    <td>Integration Specialist</td>
+                                    <td>Tokyo</td>
+
+                                    <td>2010/10/14</td>
+                                    <td>bemila@gmail.com</td>
+                                    <td>Cycosocis</td>
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button class="btn btn-primary btn-sm">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                        
+                                    </td>
+
+                                </tr>
+                                <tr  class="text-center">
+                                    <td>Colleen Hurst</td>
+                                    <td>Javascript Developer</td>
+                                    <td>San Francisco</td>
+
+                                    <td>2009/09/15</td>
+                                    <td>bemila@gmail.com</td>
+                                    <td>Cycosocis</td>
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button class="btn btn-primary btn-sm">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                       
+                                    </td>
+
+                                </tr>
+                                <tr  class="text-center">
+                                    <td id="son">Sonya Frost</td>
+                                    <td>Software Engineer</td>
+                                    <td>Edinburgh</td>
+
+                                    <td>2008/12/13</td>
+                                    <td>bemila@gmail.com</td>
+                                    <td>Cycosocis</td>
+                                    <td style="width: 180px;">
+                                        <span>
+                                            <button class="btn btn-primary btn-sm">
+                                                Edit
+                                                <i class="far fa-edit"></i>
+                                            </button>
+                                        </span>
+                                        <button class="btn btn-danger btn-sm">
+                                            Delete
+                                            <i class="fas fa-trash-alt"></i>
+                                        </button>
+                                       
+                                    </td>
+
+                                </tr>
+                              
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+
+                <div class="modal" style="height: 900px;" id="editModal" tabindex="-1">
+                    <div class="modal-dialog">
+                        <div class="modal-content" style="height: 450px;">
+                            <div class="modal-header">
+                                <h1 class="title" id="editHead">Report -  <span></span></h1>
+                            </div>
+                            <div class="modal-body mt-1 mb-4 ms-4 me-4">
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1" class="form-label">Operation Date</label>
+                                        <input type="date" class="form-control" id="name" data-attr="nameErr" required>
+                                        <div class="invalid-feedback" id="nameErr">
+                                            This field is mandatory
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1" class="form-label">Patient Name</label>
+                                        <input type="text" class="form-control" id="specialist"
+                                            data-attr="specialistErr" required>
+                                        <div class="invalid-feedback" id="specialistErr">
+                                            This field is mandatory
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1" class="form-label">Gender</label>
+                                        <input type="text" class="form-control" id="qualification"
+                                            data-attr="qualificationErr" required>
+                                        <div class="invalid-feedback" id="qualificationErr">
+                                            This field is mandatory
+                                        </div>
+                                    </div>
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1" class="form-label">Age</label>
+                                        <input type="number" class="form-control" id="number" data-attr="emailErr"
+                                            required>
+                                        <div class="invalid-feedback" id="emailErr">
+                                            This field is mandatory
+                                        </div>
+                                        <div class="invalid-feedback" id="validEmail">
+                                            please enter valid email
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1" class="form-label">Doctor Name
+                                            </label>
+                                        <input type="text" class="form-control" id="email" data-attr="numberErr"
+                                            required>
+                                        <div class="invalid-feedback" id="numberErr">
+                                            This field is mandatory
+                                        </div>
+                                    </div>
+
+                                    <div class="col">
+                                        <label for="exampleFormControlInput1" class="form-label">Operation Name
+                                            </label>
+                                        <input type="text/number" class="form-control" id="operation" data-attr="operationErr"
+                                            required>
+                                        <div class="invalid-feedback" id="operationErr">
+                                            This field is mandatory
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <div class="modal-footer" style="height: 100px;">
+                                <div class="row">
+                                    <button type="button" style="width: 100px; position: absolute; left: 260px;top: 400px;" class="btn btn-secondary" id="closed"
+                                    data-bs-dismiss="modal">Cancel</button>
+                                    <button onclick="save(this)" type="button" class="btn btn-primary" style="width: 100px;position: absolute;top: 400px;left: 370px;"
+                                        data-save="save" id="save" data-bs-dismiss="modal">Save</button>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h5 class="modal-title" id="exampleModalLabel">Report - <span></span></h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        Do you want to delete this row?
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                          <button type="button" class="btn btn-primary"  data-bs-dismiss="modal" id="delete">Delete</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
+
+
+            </div>
+    </div>
+    </main>
+    </div>
+
+
+    </div>
+
+    <script src=" ./js/bootstrap.bundle.min.js" crossorigin="anonymous">
+    </script>
+    <script src="./js/scripts.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', event => {
+            const datatablesSimple = document.getElementById('doctorsTable');
+            if (datatablesSimple) {
+                new simpleDatatables.DataTable(datatablesSimple);
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            
+
+        });
+
+
+        var activeRow = null;
+        function editDoctors(ed) {
+            $("#close").hide();
+            ed = $(ed);
+            let parent = ed.parent().parent().parent();
+            activeRow = parent;
+            let childs = activeRow.find("td");
+            var doctorName = $(childs[1]).html();
+            $("#editHead").find("span").html(doctorName);
+            $("#name").val($(childs[0]).html());
+            $("#specialist").val($(childs[1]).html());
+            $("#qualification").val($(childs[2]).html());
+            $("#number").val($(childs[3]).html());
+            $("#email").val($(childs[4]).html());
+            $("#operation").val($(childs[5]).html());
+           
+            $("#editModal").modal('show');
+        }
+
+        function save(sa) {
+            var name = $("#name").val();
+            var specialist = $("#specialist").val();
+            var qualification = $("#qualification").val();
+            var number = $("#number").val();
+            var email = $("#email").val();
+            var operation = $("#operation").val();
+
+            let tdSingle = $(activeRow).find("td");
+            $(tdSingle).eq(0).html(name);
+            $(tdSingle).eq(1).html(specialist);
+            $(tdSingle).eq(2).html(qualification);
+            $(tdSingle).eq(3).html(number);
+            $(tdSingle).eq(4).html(email);
+            $(tdSingle).eq(5).html(operation);
+
+           
+        }
+
+      
+        var parent1 = "";
+
+        function deleteRow(pl) {
+            parent1 = $(pl).parent().parent();
+            $("#deleteConfirmation").addClass("show");
+            var td = $(parent1).find("td");
+            var doctor = $(td[1]).html();
+            $("#exampleModalLabel").find("span").html(doctor);
+            $("#exampleModal").modal('show');
+        }
+
+        $("#delete").click(function () {
+            parent1.remove();
+           
+        });
+
+       
+
+
+    </script>
+</body>
+
+</html>
